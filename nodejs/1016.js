@@ -1,27 +1,26 @@
 const input = require('fs').readFileSync('test.txt').toString().trim().split(' ');
 let min = parseInt(input[0]);
 let max = parseInt(input[1]);
+let numOfTotal = max - min + 1;
 let count = 0;
-let numOfSquare = 0;
 let numOfNonSquare = 0;
 
-for (let i=min; i<=max; i++) { // i = 어떤 정수
-    for (let j=2; j*j<=i; j++) { // j*j == 1보다 큰 제곱수
-        numOfSquare++; // i보다 작은 제곱수의 개수
-        if (i % (j * j) != 0) {
-            count++;     
-        }
-        if (i == (j * j)) {
-            numOfNonSquare--;
-        }
-    }
-    if (numOfSquare == 0 && count == 0) {
-        numOfNonSquare--;
-    }
-    if (count = numOfSquare) {
-        numOfNonSquare++;
-    }
-    numOfSquare = 0;
-    count = 0;
+if (min == 1) {
+    min = 2;
 }
+// 4, 9, 16, 25, 36, 49, 64, 81, 100
+for (let i=min; i*i<=max; i++) {
+    for (let j=1; i*i*j<= max; j++) {
+        count++;
+    }
+    for (let k=i; k>=min; k--) {
+        if ((i * i) % (k * k) == 0) {
+            count--;
+        }
+    }
+    count++;
+}
+
+console.log(count);
+numOfNonSquare = numOfTotal - count;
 console.log(numOfNonSquare);
