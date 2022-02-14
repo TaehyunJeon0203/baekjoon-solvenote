@@ -18,5 +18,5 @@ for (let i=1; i<=parseInt(input[0]); i++) {
     answer += `${(rate.toFixed(3))}%\n`;
     sum = 0;
     count = 0;
-}
+}git 
 console.log(answer);
