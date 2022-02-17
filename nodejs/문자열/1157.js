@@ -1,20 +1,32 @@
-const input = require('fs').readFileSync('test.txt').toString().trim().split('');
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('');
 let count = new Array();
 let sumCount = new Array();
-for (let i=65; i<91; i++) {
+for (let i=0; i<26; i++) {
     count[i] = 0;
 }
-for (let i=97; i<123; i++) {
+for (let i=32; i<58; i++) {
     count[i] = 0;
 }
-for (let i=0; i<input.length; i++) { // 배열은 객체이므로 parseInt로 형변환을 해주어야 함
-    count[input[i].charCodeAt(0)] = parseInt(count[input[i].charCodeAt(0)]) + 1;
+for (let i=0; i<input.length; i++) {
+    count[input[i].charCodeAt(0) - 65] = parseInt(count[input[i].charCodeAt(0) - 65]) + 1;
 }
-for (let i=65; i<91; i++) {
+for (let i=0; i<26; i++) {
     sumCount[i] = parseInt(count[i]) + parseInt(count[i + 32]);
 }
-let countSet = new Set(sumCount);
-set countSetArr = [...countSet];
-if ()
-console.log(input[0].charCodeAt(0));
-console.log(count);
+let maxOfSumCount = Math.max(...sumCount);
+let Cnt = 0;
+let charCode;
+for (let i=0; i<sumCount.length; i++) {
+    if (sumCount[i] == maxOfSumCount) {
+        Cnt++;
+        charCode = i;
+    }
+}
+
+if (Cnt == 1) {
+    console.log(String.fromCharCode(charCode+65));
+}
+else {
+    console.log("?");
+}
+ 
