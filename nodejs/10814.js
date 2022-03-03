@@ -1,6 +1,6 @@
-const [n, ...arr] = require('fs').readFileSync('test.txt').toString().trim().split('\n');
-const N = Number(n);
-let user = new Array();
-for (let i=0; i<N; i++) {
-    arr[i].split(' ');
-}
+const [n, ...arr] = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+let answer = arr.map(v => ({age: parseInt(v.split(" ")[0]), name: v.split(" ")[1]}))
+                .sort((a, b) => a.age - b.age)
+                .map(v => `${String(v.age)} ${v.name}`)
+                .join("\n");
+console.log(answer);
