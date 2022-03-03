@@ -8,3 +8,4 @@ for (let i=0; i<N; i++) {
     answer += `${arr[i]}\n`;
 }
 console.log(answer);
+// nodejs 특성상 메모리 초과가 발생
