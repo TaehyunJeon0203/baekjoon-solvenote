@@ -1,4 +1,4 @@
-const input = require('fs').readFileSync('test.txt').toString().trim().split('\n');
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 const nNum = input[1].split(' ');
 const mNum = input[3].split(' ');
 let answer = "";
