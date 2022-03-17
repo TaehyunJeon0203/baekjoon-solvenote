@@ -10,6 +10,5 @@ for (let i=0; i<input.length; i++) {
     else {
         console.log("no");
     }
-
-    
 }
+// 닫히는 괄호가 먼저 나오고 열리는 괄호가 나오는 경우를 생각해야 함..
