@@ -1,5 +1,6 @@
-const [n, ...arr] = require('fs').readFileSync('test.txt').toString().trim().split(/\s+/);
-const N = n;
+
+const input = require('fs').readFileSync('dev/stdin').toString().split(/\n/g);
+const N = input[0];
 
 let stack = [];
 const answer = [];
@@ -21,14 +22,12 @@ const cmdObj = {
         return stack.length === 0 ? -1 : stack[stack.length - 1];
     }
 }
-for(let i=0; i<=N; i++) {
-    const [cmd, num] = arr[i].trim().split(/\s/g);
+for(let i=1; i<=N; i++) {
+    const [cmd, num] = input[i].trim().split(/\s/g);
     if (cmd === `push`) {
         cmdObj.push(parseInt(num));
     } else {
         answer.push(cmdObj[cmd]());
-        answer += `\n`
     }
 }
-
-console.log(cmd);
+console.log(answer.join(`\n`));
